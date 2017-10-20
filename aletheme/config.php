@@ -558,8 +558,25 @@ function aletheme_metaboxes($meta_boxes) {
             ),
         )
     );
+
+    $meta_boxes[] = array(
+            'id'         => 'sermons_page_metabox',
+            'title'      => 'Sermons Options',
+            'pages'      => array( 'sermons', ), // Post type
+            'context'    => 'normal',
+            'priority'   => 'high',
+            'show_names' => true, // Show field names on the left
+            'fields' => array(
+             array(
+                'name' => __('Title for Our Sermons','aletheme'),
+                'desc' => 'Type here the sermons data',
+                'id'   => $prefix . 'sermons_data',
+                'type' => 'text_datetime_timestamp',
+                ),
+            )
+    );
 	return $meta_boxes;
-}
+};
 
 /**
  * Get image sizes for images
@@ -594,6 +611,20 @@ function aletheme_get_images_sizes() {
                 'name'      => 'people-user',
                 'width'     => 87,
                 'height'    => 87,
+                'crop'      => true,
+            ),
+        ),
+        'sermons' => array(
+            array(
+                'name'      => 'sermons-list',
+                'width'     => 306,
+                'height'    => 172,
+                'crop'      => true,
+            ),
+             array(
+                'name'      => 'sermons-biglist',
+                'width'     => 396,
+                'height'    => 226,
                 'crop'      => true,
             ),
         ),
@@ -642,6 +673,23 @@ function aletheme_get_post_types() {
             ),
             'singular' => 'Event',
             'multiple' => 'Events'
+        ),
+        'sermons' => array(
+            'config' => array(
+                'public' => true,
+                'menu_position' => 20,
+                'has_archive'   => true,
+                'supports'=> array(
+                    'title',
+                    'editor',
+                    'excerpt',
+                    'thumbnail',
+                    'comments'
+                ),
+                'show_in_nav_menus'=> true,
+            ),
+            'singular' => 'Sermon',
+            'multiple' => 'Sermons'
         ),
         'people' => array(
             'config' => array(

@@ -604,9 +604,6 @@ Header Styles
   background: #FFFFFF;
   position: relative;
 }
-.top_header .wrapper {
-  overflow: hidden;
-}
 .top_header .top_navigation {
   display: none;
   position: absolute;
@@ -814,7 +811,8 @@ Header Styles
 .top_header .header_third.search_section .menu_icon {
   display: inline-block;
   float: left;
-  line-height: 110px;
+  line-height: 105px;
+  min-width: 18px;
 }
 .top_header .header_third.search_section .menu_icon i {
   font-size: 20px;
